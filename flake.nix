@@ -31,6 +31,8 @@
 		"Todoist" = 585829637;
 		};
 		onActivation.cleanup = "zap";
+		onActivation.autoUpdate = false;
+		onActivation.upgrade = true;
 	};
 
         fonts.packages = [
@@ -66,6 +68,14 @@
             ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
         done
             '';
+
+
+	system.defaults = {
+		dock.autohide = true;
+		NSGlobalDomain.AppleInterfaceStyle = "Dark";
+		NSGlobalDomain.KeyRepeat = 2;
+
+	};
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
